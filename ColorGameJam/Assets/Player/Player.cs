@@ -15,8 +15,12 @@ public class Player : MonoBehaviour {
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+<<<<<<< HEAD
 		CurrentHealth = StartingHealth;
 	
+=======
+        PlayerList.AddPlayerToTrackable(this);
+>>>>>>> 4afad1434ab4b23a6a1a5e16624798a319c2e50d
 	}
 	
 	void Update () {
