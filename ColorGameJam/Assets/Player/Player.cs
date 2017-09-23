@@ -50,7 +50,7 @@ public class Player : MonoBehaviour {
         anim = GetComponent<Animator>();
         m_PhotonView = GetComponent<PhotonView>();
 
-        int num = m_PhotonView.GetInstanceID() % 3;
+        int num = Random.Range(0, 3);
         if (num == 0) ChangeColor(ColorColor.Red);
         else if (num == 1) ChangeColor(ColorColor.Blue);
         else ChangeColor(ColorColor.Yellow);

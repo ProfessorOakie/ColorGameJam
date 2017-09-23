@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1889645844223464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
   m_Children:
   - {fileID: 4863502096597226}
   m_Father: {fileID: 0}
@@ -134,9 +134,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ZombiePrefab: {fileID: 1456503926799932, guid: 7ea490ef80c0c444ca20024413d5ba0b,
     type: 2}
-  initialSpawnTime: 3
-  SpawnLoopTimeMin: 3
-  SpawnLoopTimeMax: 5
+  initialSpawnTime: 5
+  SpawnLoopTimeMin: 6
+  SpawnLoopTimeMax: 8
   coreColorChangingSpriteRenderer: {fileID: 212813944860531300}
   red: {r: 1, g: 0, b: 0, a: 1}
   blue: {r: 0.07586192, g: 0, b: 1, a: 1}
