@@ -11,7 +11,10 @@ public class BlackHole : MonoBehaviour
     [SerializeField]
     private float initialSpawnTime;
     [SerializeField]
-    private float SpawnLoopTime;
+    private float SpawnLoopTimeMin;
+    [SerializeField]
+    private float SpawnLoopTimeMax;
+
 
 
     // Use this for initialization
@@ -23,15 +26,15 @@ public class BlackHole : MonoBehaviour
     IEnumerator SpawnLoop(float time)
     {
         SpawnZombie();
-		yield return new WaitForSeconds(Random.Range(.5f, 6f));
+		yield return new WaitForSeconds(time);
         //TODO: change spawn loop time logic
-        StartCoroutine(SpawnLoop(SpawnLoopTime));
+        StartCoroutine(SpawnLoop(Random.Range(SpawnLoopTimeMin, SpawnLoopTimeMax)));
     }
 
     private void SpawnZombie()
     {
         print("Zombie Was Spawned at time: " + Time.time + " from: " + gameObject.name);
-        //Instantiate(ZombiePrefab, transform.position, transform.rotation);
+        PhotonNetwork.Instantiate(ZombiePrefab.name, transform.position, transform.rotation, 0);
     }
 
 }

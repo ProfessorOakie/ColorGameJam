@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
     private float MoveSpeed = 1;
 	[SerializeField]
     private GameObject bulletPrefab;
+    [SerializeField]
+    private float TimeBetweenShots = 0.02f;
 
 
 	void Start () {
@@ -33,6 +35,11 @@ public class Player : MonoBehaviour {
 
 	private void Shooting()
     {
+
+        if(Input.GetButton("Fire1") || Input.GetKey(KeyCode.Space))
+        {
+
+        }
 
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit floorHit;
