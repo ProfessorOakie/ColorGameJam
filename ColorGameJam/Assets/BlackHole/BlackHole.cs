@@ -27,7 +27,7 @@ public class BlackHole : MonoBehaviour
     IEnumerator SpawnLoop(float time)
     {
         SpawnZombie();
-        yield return new WaitForSeconds(time);
+		yield return new WaitForSeconds(Random.Range(.5f, 6f));
         //TODO: change spawn loop time logic
         StartCoroutine(SpawnLoop(SpawnLoopTime));
     }
