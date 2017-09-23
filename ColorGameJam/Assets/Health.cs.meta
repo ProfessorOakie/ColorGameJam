@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 67f86451a5c6b3347b5aa02d62899914
-timeCreated: 1506147987
+timeCreated: 1506207633
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - hurtSound: {fileID: 8300000, guid: 64f1567c7833b4224a93c6fdd40e7fb4, type: 3}
+  - deathSound: {fileID: 8300000, guid: d795c2f0a88f24018b256c8bce848751, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

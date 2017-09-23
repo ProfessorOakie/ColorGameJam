@@ -9,10 +9,14 @@ public class Zombie : MonoBehaviour {
     private Rigidbody2D rb;
     [SerializeField]
     private float damage = 1;
+	[SerializeField]
+	private AudioSource source;
+
 
     
     private void Start()
     {
+		source = GetComponent<AudioSource> ();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -62,7 +66,8 @@ public class Zombie : MonoBehaviour {
         {
             Health h = g.GetComponent<Health>();
             if (h) h.TakeDamage(damage);
-            Destroy(gameObject);
+			Destroy(gameObject);
+
         }
     }
 
