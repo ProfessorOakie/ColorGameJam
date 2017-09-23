@@ -32,6 +32,7 @@ public class BlackHole : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnLoop(initialSpawnTime));
+
         SetCoreColor(CoreColor);
     }
 

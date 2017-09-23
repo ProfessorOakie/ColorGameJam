@@ -30,20 +30,22 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private Color yellow = Color.yellow;
 
+    private Animator anim;
     [SerializeField]
-    private Animator redAnimator;
+    private RuntimeAnimatorController redAC;
     [SerializeField]
-    private Animator blueAnimator;
+    private RuntimeAnimatorController blueAC;
     [SerializeField]
-    private Animator yellowAnimator;
+    private RuntimeAnimatorController yellowAC;
 
     private bool wasJustInstantiated = true;
+    private bool isFiring = false;
 
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         transform.parent = PlayerList.Instance.transform;
         ChangeColor(PlayerList.Instance.GetMinColor());
-        
+        anim = GetComponent<Animator>();
 	}
 	
 	void Update () {
@@ -64,26 +66,23 @@ public class Player : MonoBehaviour {
 	private void Shooting()
     {
         TimeBetweenShotsCounter -= Time.deltaTime;
-        if(Input.GetButton("Fire1") || Input.GetKey(KeyCode.Space))
-        {
-            if(TimeBetweenShotsCounter <= 0)
+        if (Input.GetButton("Fire1") && TimeBetweenShotsCounter <= 0)
+        {                   
+            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit floorHit;
+            if (Physics.Raycast(camRay, out floorHit, 1000))
             {
-                Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit floorHit;
-                if (Physics.Raycast(camRay, out floorHit, 1000))
-                {
-                    Vector3 playerToMouse = floorHit.point - transform.position;
-                    playerToMouse.z = 0f;
-                    Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-                    GameObject g = PhotonNetwork.Instantiate(bulletPrefab.name, transform.position, newRotation, 0);
-                    g.transform.right = playerToMouse;
-                    g.GetComponent<SpriteRenderer>().sprite = GetBulletSprite();
-
-                    TimeBetweenShotsCounter = TimeBetweenShots;
-                }
+                Vector3 playerToMouse = floorHit.point - transform.position;
+                playerToMouse.z = 0f;
+                Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+                GameObject g = PhotonNetwork.Instantiate(bulletPrefab.name, transform.position, newRotation, 0);
+                g.transform.right = playerToMouse;
+                g.GetComponent<SpriteRenderer>().sprite = GetBulletSprite();
+                isFiring = true;
+                TimeBetweenShotsCounter = TimeBetweenShots;
             }
         }
-
+        else isFiring = false;
     }
 
     private Sprite GetBulletSprite()
@@ -107,30 +106,29 @@ public class Player : MonoBehaviour {
 
     private void ChangeColor(ColorColor newColor)
     {
+        if(!anim) anim = GetComponent<Animator>();
         print("Changing color to : " + newColor);
         playerColor = newColor;
-
-        redAnimator.enabled = false;
-        blueAnimator.enabled = false;
-        yellowAnimator.enabled = false;
 
         switch (newColor)
         {
             case Player.ColorColor.Red:
-                redAnimator.enabled = true;
+                anim.runtimeAnimatorController = redAC;
                 colorChangingSpriteRenderer.color = red;
                 break;
             case Player.ColorColor.Blue:
-                blueAnimator.enabled = true;
+                anim.runtimeAnimatorController = blueAC;
                 colorChangingSpriteRenderer.color = blue;
                 break;
             case Player.ColorColor.Yellow:
-                yellowAnimator.enabled = true;
+                anim.runtimeAnimatorController = yellowAC;                
                 colorChangingSpriteRenderer.color = yellow;
                 break;
         }
         wasJustInstantiated = false;
     }
+
+    public bool GetIsFiring() { return isFiring; }
 
 }
 	
