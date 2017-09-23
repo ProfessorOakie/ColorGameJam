@@ -32,8 +32,18 @@ public class BlackHole : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnLoop(initialSpawnTime));
-
-        SetCoreColor(CoreColor);
+        switch(Random.Range(0, 3))
+        {
+            case 0:
+                SetCoreColor(Player.ColorColor.Red);
+                break;
+            case 1:
+                SetCoreColor(Player.ColorColor.Blue);
+                break;
+            case 2:
+                SetCoreColor(Player.ColorColor.Yellow);
+                break;
+        }
     }
 
     private void SetCoreColor(Player.ColorColor col)
