@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
                 TimeBetweenShotsCounter = TimeBetweenShots;
             }
         }
-        else isFiring = false;
+		isFiring = Input.GetButton("Fire1");
     }
 
     private Sprite GetBulletSprite()
