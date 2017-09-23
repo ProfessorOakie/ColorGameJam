@@ -228,8 +228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingHealth: 100
-  hurtSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: 64f1567c7833b4224a93c6fdd40e7fb4, type: 3}
+  deathSound: {fileID: 8300000, guid: d795c2f0a88f24018b256c8bce848751, type: 3}
 --- !u!114 &114509099345332362
 MonoBehaviour:
   m_ObjectHideFlags: 1

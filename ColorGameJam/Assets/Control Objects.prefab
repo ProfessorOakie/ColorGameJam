@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnRadius: 5
   SpawnRadiusWidth: 1
-  BlackHolePrefab: {fileID: 1735990741123418, guid: bedb492ef81afef49a7e7820ecb264e2,
+  BlackHolePrefab: {fileID: 1889645844223464, guid: bedb492ef81afef49a7e7820ecb264e2,
     type: 2}
   InitialNumberSpawned: 3
 --- !u!114 &114237191710365624

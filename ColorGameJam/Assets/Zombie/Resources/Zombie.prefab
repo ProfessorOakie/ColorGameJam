@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 1
   damage: 1
+  source: {fileID: 0}
 --- !u!114 &114511402836993056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingHealth: 20
+  hurtSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: f966452c3c4034f248ec43c4c220e36f, type: 3}
 --- !u!114 &114513833611375258
 MonoBehaviour:
   m_ObjectHideFlags: 1
