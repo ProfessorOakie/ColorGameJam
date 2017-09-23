@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+    [SerializeField]
+    private float moveSpeed = 5;
+
+    private Rigidbody rb;
+    
+
+    void Start () {
+        rb = GetComponent<Rigidbody>();
+        Vector3 vec = transform.forward;
+        vec *= moveSpeed;
+        rb.velocity = vec;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
+
 }
