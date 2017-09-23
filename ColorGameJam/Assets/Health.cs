@@ -21,6 +21,7 @@ public class Health : MonoBehaviour {
         asource = GetComponent<AudioSource>();
         if (!asource) asource = gameObject.AddComponent<AudioSource>();
         asource.loop = false;
+        asource.volume = 0.1f;
     }
 
     public virtual void TakeDamage(float baseDamage, Player.ColorColor col, float colorCorrectDamage)

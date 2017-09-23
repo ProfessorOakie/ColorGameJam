@@ -47,9 +47,14 @@ public class Player : MonoBehaviour {
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         transform.parent = PlayerList.Instance.transform;
-        ChangeColor(PlayerList.Instance.GetMinColor());
         anim = GetComponent<Animator>();
         m_PhotonView = GetComponent<PhotonView>();
+
+        int num = m_PhotonView.GetInstanceID() % 3;
+        if (num == 0) ChangeColor(ColorColor.Red);
+        else if (num == 1) ChangeColor(ColorColor.Blue);
+        else ChangeColor(ColorColor.Yellow);
+
     }
 	
 	void Update () {
