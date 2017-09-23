@@ -43,7 +43,7 @@ Transform:
   m_GameObject: {fileID: 1775181796834694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -91,7 +91,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 8, y: 8}
   m_EdgeRadius: 0
 --- !u!95 &95344365470243720
 Animator:
@@ -100,7 +100,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775181796834694}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e4d87c86c7f894428a82e799b4318287, type: 2}
   m_CullingMode: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580b12bc37abe0d42a7de1c13d74bdca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 1
+  MoveSpeed: 1.5
   bulletPrefab: {fileID: 1112391004563060, guid: 2f8731b50ee0f344ea92c7feb9cfc088,
     type: 2}
   RedBulletSprites:
@@ -135,18 +135,9 @@ MonoBehaviour:
   red: {r: 0.9843137, g: 0.30980393, b: 0.35686275, a: 1}
   blue: {r: 0.08627451, g: 0.1882353, b: 0.36862746, a: 1}
   yellow: {r: 1, g: 0.7607843, b: 0.27058825, a: 1}
-<<<<<<< HEAD
-  redAnimator: {fileID: 95626852826117850, guid: 68586e8d6e31a4e459ce18e3b75c63c4,
-    type: 2}
-  blueAnimator: {fileID: 95687441855660842, guid: 116b7bfc224104a1aa5274054d3ab86e,
-    type: 2}
-  yellowAnimator: {fileID: 95575065251958128, guid: 595f8ea4ff8ad4029ad11aaceac1aca0,
-    type: 2}
-=======
   redAC: {fileID: 9100000, guid: 304ebbbe9e284422aa58913846fc5486, type: 2}
   blueAC: {fileID: 9100000, guid: e4d87c86c7f894428a82e799b4318287, type: 2}
   yellowAC: {fileID: 9100000, guid: f615c52293c514ac79809750b5ebc715, type: 2}
->>>>>>> origin/master
 --- !u!114 &114254626916272532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,6 +228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingHealth: 100
+  hurtSound: {fileID: 0}
+  deathSound: {fileID: 0}
 --- !u!114 &114509099345332362
 MonoBehaviour:
   m_ObjectHideFlags: 1
