@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+        PlayerList.AddPlayerToTrackable(this);
 	}
 	
 	void Update () {
