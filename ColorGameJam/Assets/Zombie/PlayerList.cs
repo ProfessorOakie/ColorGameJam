@@ -5,18 +5,17 @@ using UnityEngine;
 public class PlayerList : MonoBehaviour
 {
 
-    private static List<Player> Players;
-    public static void AddPlayerToTrackable(Player p)
-    {
-        Players.Add(p);
-    }
-    public static List<Player> GetPlayers()
-    {
-        return Players;
-    }
+    public static PlayerList Instance;
 
     private void Start()
     {
-        if (Players == null) Players = new List<Player>();
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
+
+    public Player[] GetPlayers()
+    {
+        return GetComponentsInChildren<Player>();
+    }
+
 }

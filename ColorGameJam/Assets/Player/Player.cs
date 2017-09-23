@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
-		PlayerList.AddPlayerToTrackable(this);
+        transform.parent = PlayerList.Instance.transform;
 	}
 	
 	void Update () {

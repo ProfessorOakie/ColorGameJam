@@ -37,18 +37,19 @@ public class Zombie : MonoBehaviour {
 
     private Player GetClosestPlayer()
     {
-        if (PlayerList.GetPlayers().Count == 0) return null;
+        Player[] Players = PlayerList.Instance.GetPlayers();
+        if (Players.Length == 0) return null;
         float closest = -1;
         int index = -1;
-        for(int i = 0; i < PlayerList.GetPlayers().Count; i++)
+        for(int i = 0; i < Players.Length; i++)
         {
-            float dist = Vector3.Distance(transform.position, PlayerList.GetPlayers()[i].transform.position);
+            float dist = Vector3.Distance(transform.position, Players[i].transform.position);
             if (closest == -1 || closest > dist)
             {
                 closest = dist;
                 index = i;
             }
         }
-        return PlayerList.GetPlayers()[index];
+        return Players[index];
     }
 }
