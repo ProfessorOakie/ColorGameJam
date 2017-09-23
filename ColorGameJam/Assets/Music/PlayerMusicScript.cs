@@ -36,7 +36,7 @@ public class PlayerMusicScript : MonoBehaviour {
 			if (p.GetIsFiring ()) {
 				if (p.GetPlayerColor () == Player.ColorColor.Red) {
 					playRed = true;
-				} else if (p.GetPlayerColor () == Player.ColorColor.Red) {
+				} else if (p.GetPlayerColor () == Player.ColorColor.Yellow) {
 					playYellow = true;
 				} else {
 					playBlue = true;
