@@ -93,7 +93,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  damage: 1
+  baseDamage: 4
+  colorCorrectDamage: 10
 --- !u!114 &114443608551858454
 MonoBehaviour:
   m_ObjectHideFlags: 1
