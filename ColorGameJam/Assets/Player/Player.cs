@@ -97,10 +97,7 @@ public class Player : MonoBehaviour {
 
     private void ChangeColor(ColorColor newColor)
     {
-<<<<<<< HEAD
-=======
         print("Changing color to : " + newColor);
->>>>>>> origin/master
         playerColor = newColor;
         switch (newColor)
         {
