@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         transform.parent = PlayerList.Instance.transform;
+        ChangeColor(PlayerList.Instance.GetMinColor());
 	}
 	
 	void Update () {
@@ -96,6 +97,10 @@ public class Player : MonoBehaviour {
 
     private void ChangeColor(ColorColor newColor)
     {
+<<<<<<< HEAD
+=======
+        print("Changing color to : " + newColor);
+>>>>>>> origin/master
         playerColor = newColor;
         switch (newColor)
         {

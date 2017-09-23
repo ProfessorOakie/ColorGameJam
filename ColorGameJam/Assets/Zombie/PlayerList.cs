@@ -38,14 +38,24 @@ public class PlayerList : MonoBehaviour
                     break;
             }
         }
+<<<<<<< HEAD
         if(red < blue)
+=======
+        if (red < blue)
+>>>>>>> origin/master
         {
             if (red < yellow) return Player.ColorColor.Red;
             else if (blue < yellow) return Player.ColorColor.Blue;
             else return Player.ColorColor.Yellow;
         }
+<<<<<<< HEAD
         //poop code
         return Player.ColorColor.Red;
+=======
+        else if (blue < yellow)
+            return Player.ColorColor.Blue;
+        else return Player.ColorColor.Yellow;
+>>>>>>> origin/master
     }
 
 }

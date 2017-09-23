@@ -310,6 +310,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cef0da74a817d7643be88b226e617e3a, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
 --- !u!1 &1570121804
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +395,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> origin/master
 --- !u!1 &1663540373
 GameObject:
   m_ObjectHideFlags: 0
