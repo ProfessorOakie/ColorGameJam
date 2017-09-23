@@ -41,16 +41,23 @@ public class Player : MonoBehaviour {
     private bool wasJustInstantiated = true;
     private bool isFiring = false;
 
+    PhotonView m_PhotonView;
+
+
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         transform.parent = PlayerList.Instance.transform;
         ChangeColor(PlayerList.Instance.GetMinColor());
         anim = GetComponent<Animator>();
-	}
+        m_PhotonView = GetComponent<PhotonView>();
+    }
 	
 	void Update () {
-        Movement();
-        Shooting();
+        if (m_PhotonView.isMine == true)
+        {
+            Movement();
+            Shooting();
+        }
     }
 
     private void Movement()
