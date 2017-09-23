@@ -26,10 +26,21 @@ public class Bullet : MonoBehaviour {
         bulletColor = c;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void Collide(GameObject g)
     {
-        collision.collider.gameObject.GetComponent<Health>().TakeDamage(damage, bulletColor);
+        if (g.CompareTag("Shredder")) return;
+        Health h = g.GetComponent<Health>();
+        if(h) h.TakeDamage(damage, bulletColor);
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Collide(collision.collider.gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        Collide(collider.gameObject);
     }
 
 }

@@ -6,13 +6,11 @@ public class Health : MonoBehaviour {
 
     [SerializeField]
     private float StartingHealth = 100;
-    [SerializeField]
     private float CurrentHealth;
 
     private void Start()
     {
         CurrentHealth = StartingHealth;
-
     }
 
     public void TakeDamage(float amount, Color col)
@@ -28,6 +26,6 @@ public class Health : MonoBehaviour {
     private void Dead()
     {
         print("I be ded");
-
+        Destroy(gameObject);
     }
 }

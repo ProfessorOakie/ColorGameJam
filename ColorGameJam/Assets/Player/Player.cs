@@ -10,8 +10,8 @@ public class Player : MonoBehaviour {
 	[SerializeField]
     private GameObject bulletPrefab;
     [SerializeField]
-    private float TimeBetweenShots = 0.02f;
-
+    private float TimeBetweenShots = 0.1f;
+    private float TimeBetweenShotsCounter = 0;
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -35,24 +35,26 @@ public class Player : MonoBehaviour {
 
 	private void Shooting()
     {
-
+        TimeBetweenShotsCounter -= Time.deltaTime;
         if(Input.GetButton("Fire1") || Input.GetKey(KeyCode.Space))
         {
+            if(TimeBetweenShotsCounter <= 0)
+            {
+                Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit floorHit;
+                if (Physics.Raycast(camRay, out floorHit, 1000))
+                {
+                    Vector3 playerToMouse = floorHit.point - transform.position;
+                    playerToMouse.z = 0f;
+                    Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+                    GameObject g = PhotonNetwork.Instantiate(bulletPrefab.name, transform.position, newRotation, 0);
+                    g.transform.right = playerToMouse;
 
+                    TimeBetweenShotsCounter = TimeBetweenShots;
+                }
+            }
         }
 
-        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit floorHit;
-        if (Physics.Raycast(camRay, out floorHit, 1000))
-        {
-            Vector3 playerToMouse = floorHit.point - transform.position;
-            playerToMouse.z = 0f;
-            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-            GameObject g = PhotonNetwork.Instantiate(bulletPrefab.name, transform.position, newRotation, 0);
-            g.transform.right = playerToMouse;
-
-            
-        }
     }
 }
 	

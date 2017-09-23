@@ -198,6 +198,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114467064224242680, guid: bedb492ef81afef49a7e7820ecb264e2,
+        type: 2}
+      propertyPath: instantiationId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114467064224242680, guid: bedb492ef81afef49a7e7820ecb264e2,
+        type: 2}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bedb492ef81afef49a7e7820ecb264e2, type: 2}
   m_IsPrefabParent: 0
@@ -214,7 +224,7 @@ GameObject:
   - component: {fileID: 679575859}
   m_Layer: 0
   m_Name: ExitShredder
-  m_TagString: Untagged
+  m_TagString: Shredder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -423,6 +433,16 @@ Prefab:
     - target: {fileID: 1735990741123418, guid: bedb492ef81afef49a7e7820ecb264e2, type: 2}
       propertyPath: m_Name
       value: BlackHole (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114467064224242680, guid: bedb492ef81afef49a7e7820ecb264e2,
+        type: 2}
+      propertyPath: viewIdField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114467064224242680, guid: bedb492ef81afef49a7e7820ecb264e2,
+        type: 2}
+      propertyPath: instantiationId
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bedb492ef81afef49a7e7820ecb264e2, type: 2}

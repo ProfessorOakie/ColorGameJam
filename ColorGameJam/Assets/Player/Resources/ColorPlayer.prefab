@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114509099345332362}
   - component: {fileID: 114282046727997882}
   - component: {fileID: 114254626916272532}
+  - component: {fileID: 114359996612280932}
   m_Layer: 8
   m_Name: ColorPlayer
   m_TagString: Untagged
@@ -105,6 +106,7 @@ MonoBehaviour:
   MoveSpeed: 1
   bulletPrefab: {fileID: 1112391004563060, guid: 2f8731b50ee0f344ea92c7feb9cfc088,
     type: 2}
+  TimeBetweenShots: 0.1
 --- !u!114 &114254626916272532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,6 +185,18 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &114359996612280932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775181796834694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f86451a5c6b3347b5aa02d62899914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingHealth: 100
 --- !u!114 &114509099345332362
 MonoBehaviour:
   m_ObjectHideFlags: 1
