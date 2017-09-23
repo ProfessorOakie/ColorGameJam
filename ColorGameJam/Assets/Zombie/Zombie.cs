@@ -7,6 +7,8 @@ public class Zombie : MonoBehaviour {
     [SerializeField]
     private float MoveSpeed = 1;
     private Rigidbody2D rb;
+    [SerializeField]
+    private float damage = 1;
 
     
     private void Start()
@@ -51,5 +53,25 @@ public class Zombie : MonoBehaviour {
             }
         }
         return Players[index];
+    }
+
+
+    private void Collide(GameObject g)
+    {
+        if (g.CompareTag("Player"))
+        {
+            Health h = g.GetComponent<Health>();
+            if (h) h.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Collide(collision.collider.gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        Collide(collider.gameObject);
     }
 }
