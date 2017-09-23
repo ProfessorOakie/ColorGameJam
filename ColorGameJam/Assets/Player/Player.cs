@@ -33,8 +33,19 @@ public class Player : MonoBehaviour {
 
 	private void Shooting()
     {
-        Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
+        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit floorHit;
+        if (Physics.Raycast(camRay, out floorHit, 1000))
+        {
+            Vector3 playerToMouse = floorHit.point - transform.position;
+            playerToMouse.z = 0f;
+            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+            GameObject g = PhotonNetwork.Instantiate(bulletPrefab.name, transform.position, newRotation, 0);
+            g.transform.right = playerToMouse;
+
+            
+        }
     }
 }
 	
