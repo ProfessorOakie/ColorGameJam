@@ -30,10 +30,20 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private Color yellow = Color.yellow;
 
+    [SerializeField]
+    private Animator redAnimator;
+    [SerializeField]
+    private Animator blueAnimator;
+    [SerializeField]
+    private Animator yellowAnimator;
+
+    private bool wasJustInstantiated = true;
+
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         transform.parent = PlayerList.Instance.transform;
         ChangeColor(PlayerList.Instance.GetMinColor());
+        
 	}
 	
 	void Update () {
@@ -99,18 +109,27 @@ public class Player : MonoBehaviour {
     {
         print("Changing color to : " + newColor);
         playerColor = newColor;
+
+        redAnimator.enabled = false;
+        blueAnimator.enabled = false;
+        yellowAnimator.enabled = false;
+
         switch (newColor)
         {
             case Player.ColorColor.Red:
+                redAnimator.enabled = true;
                 colorChangingSpriteRenderer.color = red;
                 break;
             case Player.ColorColor.Blue:
+                blueAnimator.enabled = true;
                 colorChangingSpriteRenderer.color = blue;
                 break;
             case Player.ColorColor.Yellow:
+                yellowAnimator.enabled = true;
                 colorChangingSpriteRenderer.color = yellow;
                 break;
         }
+        wasJustInstantiated = false;
     }
 
 }
