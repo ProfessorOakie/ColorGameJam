@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour {
     private float baseDamage = 1;
     [SerializeField]
     private float colorCorrectDamage = 10;
+    [SerializeField]
+    private float bulletDestroyTimer = 2;
 
 
     private Player.ColorColor bulletColor;
@@ -21,7 +23,14 @@ public class Bullet : MonoBehaviour {
         Vector2 vec = transform.right;
         vec *= moveSpeed;
         rb.velocity = vec;
+        StartCoroutine(DestroyTimer());
 	}
+
+    IEnumerator DestroyTimer()
+    {
+        yield return new WaitForSeconds(bulletDestroyTimer);
+        Destroy(gameObject);
+    }
 
     public void SetColor(Player.ColorColor c)
     {
