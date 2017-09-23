@@ -5,13 +5,24 @@ using UnityEngine;
 public class BlackHole : MonoBehaviour
 {
 
+
     [SerializeField]
     private GameObject ZombiePrefab;
     [SerializeField]
     private float initialSpawnTime;
     [SerializeField]
     private float SpawnLoopTime;
+	[SerializeField]
+	private Color CoreColor;
 
+
+
+
+	void Update () {
+		Movement ();
+		if (Input.GetKeyDown (KeyCode.S)) {
+			TakeDamage_RCPlayer (10)
+		
     // Use this for initialization
     private void Start()
     {
@@ -37,4 +48,13 @@ public class BlackHole : MonoBehaviour
         print("Zombie Was Spawned at time: " + Time.time + " from: " + gameObject.name);
         //Instantiate(ZombiePrefab, transform.position, transform.rotation);
     }
+			private void TakeDamage_RCPlayer (float amount, Color bulletcolor)
+	{
+				CurrentHealth = CurrentHealth - ((amount + Color bulletcolor);
+		if (CurrentHealth <= 0) 
+		{
+			Dead ();
+		}
+
+	}
 }
