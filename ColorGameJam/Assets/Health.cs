@@ -4,8 +4,30 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 
-    public void TakeDamage(float f, Color c)
+    [SerializeField]
+    private float StartingHealth = 100;
+    [SerializeField]
+    private float CurrentHealth;
+
+    private void Start()
     {
+        CurrentHealth = StartingHealth;
+
+    }
+
+    public void TakeDamage(float amount, Color col)
+    {
+        CurrentHealth = CurrentHealth - amount;
+        if (CurrentHealth <= 0)
+        {
+            Dead();
+        }
+
+    }
+
+    private void Dead()
+    {
+        print("I be ded");
 
     }
 }

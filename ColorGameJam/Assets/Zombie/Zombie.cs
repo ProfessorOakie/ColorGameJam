@@ -27,12 +27,17 @@ public class Zombie : MonoBehaviour {
 
     private void LookAtPlayer()
     {
-        Vector3 ZtoP = GetClosestPlayer().transform.position - transform.position;
-        transform.right = ZtoP;
+        Player p = GetClosestPlayer();
+        if (p)
+        {
+            Vector3 ZtoP = p.transform.position - transform.position;
+            transform.right = ZtoP;
+        }
     }
 
     private Player GetClosestPlayer()
     {
+        if (PlayerList.GetPlayers().Count == 0) return null;
         float closest = -1;
         int index = -1;
         for(int i = 0; i < PlayerList.GetPlayers().Count; i++)

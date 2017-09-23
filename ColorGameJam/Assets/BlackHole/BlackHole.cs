@@ -12,27 +12,12 @@ public class BlackHole : MonoBehaviour
     private float initialSpawnTime;
     [SerializeField]
     private float SpawnLoopTime;
-	[SerializeField]
-	private Color CoreColor;
 
 
-
-
-	void Update () {
-		Movement ();
-		if (Input.GetKeyDown (KeyCode.S)) {
-			TakeDamage_RCPlayer (10)
-		
     // Use this for initialization
     private void Start()
     {
         StartCoroutine(SpawnLoop(initialSpawnTime));
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-
     }
 
     IEnumerator SpawnLoop(float time)
@@ -48,13 +33,5 @@ public class BlackHole : MonoBehaviour
         print("Zombie Was Spawned at time: " + Time.time + " from: " + gameObject.name);
         //Instantiate(ZombiePrefab, transform.position, transform.rotation);
     }
-			private void TakeDamage_RCPlayer (float amount, Color bulletcolor)
-	{
-				CurrentHealth = CurrentHealth - ((amount + Color bulletcolor);
-		if (CurrentHealth <= 0) 
-		{
-			Dead ();
-		}
 
-	}
 }
