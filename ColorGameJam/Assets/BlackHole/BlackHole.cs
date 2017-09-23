@@ -14,6 +14,17 @@ public class BlackHole : MonoBehaviour
     private float SpawnLoopTimeMin;
     [SerializeField]
     private float SpawnLoopTimeMax;
+    [SerializeField]
+    private SpriteRenderer coreColorChangingSpriteRenderer;
+    [SerializeField]
+    private Color red = Color.red;
+    [SerializeField]
+    private Color blue = Color.blue;
+    [SerializeField]
+    private Color yellow = Color.yellow;
+
+    private Player.ColorColor CoreColor;
+
 
 
 
@@ -21,6 +32,29 @@ public class BlackHole : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnLoop(initialSpawnTime));
+        SetCoreColor(CoreColor);
+    }
+
+    private void SetCoreColor(Player.ColorColor col)
+    {
+        CoreColor = col;
+        switch (col)
+        {
+            case Player.ColorColor.Red:
+                coreColorChangingSpriteRenderer.color = red;
+                break;
+            case Player.ColorColor.Blue:
+                coreColorChangingSpriteRenderer.color = blue;
+                break;
+            case Player.ColorColor.Yellow:
+                coreColorChangingSpriteRenderer.color = yellow;
+                break;
+        }
+    }
+
+    public Player.ColorColor GetCoreColor()
+    {
+        return CoreColor;
     }
 
     IEnumerator SpawnLoop(float time)
@@ -33,7 +67,7 @@ public class BlackHole : MonoBehaviour
 
     private void SpawnZombie()
     {
-        print("Zombie Was Spawned at time: " + Time.time + " from: " + gameObject.name);
+        //print("Zombie Was Spawned at time: " + Time.time + " from: " + gameObject.name);
         PhotonNetwork.Instantiate(ZombiePrefab.name, transform.position, transform.rotation, 0);
     }
 

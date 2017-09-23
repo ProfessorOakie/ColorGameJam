@@ -7,10 +7,12 @@ public class Bullet : MonoBehaviour {
     [SerializeField]
     private float moveSpeed = 5;
     [SerializeField]
-    private float damage = 1;
+    private float baseDamage = 1;
+    [SerializeField]
+    private float colorCorrectDamage = 10;
 
-    private Color bulletColor;
 
+    private Player.ColorColor bulletColor;
     private Rigidbody2D rb;
     
 
@@ -21,7 +23,7 @@ public class Bullet : MonoBehaviour {
         rb.velocity = vec;
 	}
 
-    public void SetColor(Color c)
+    public void SetColor(Player.ColorColor c)
     {
         bulletColor = c;
     }
@@ -30,7 +32,7 @@ public class Bullet : MonoBehaviour {
     {
         if (g.CompareTag("Shredder")) return;
         Health h = g.GetComponent<Health>();
-        if(h) h.TakeDamage(damage, bulletColor);
+        if(h) h.TakeDamage(baseDamage, bulletColor, colorCorrectDamage);
         Destroy(gameObject);
     }
 

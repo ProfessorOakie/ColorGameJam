@@ -13,14 +13,18 @@ public class Health : MonoBehaviour {
         CurrentHealth = StartingHealth;
     }
 
-    public void TakeDamage(float amount, Color col)
+    public virtual void TakeDamage(float baseDamage, Player.ColorColor col, float colorCorrectDamage)
+    {
+        TakeDamage(baseDamage);
+    }
+
+    public void TakeDamage(float amount)
     {
         CurrentHealth = CurrentHealth - amount;
         if (CurrentHealth <= 0)
         {
             Dead();
         }
-
     }
 
     private void Dead()
